@@ -1,5 +1,5 @@
 # gitcontribution
-This script shows the number of lines in the current branch by authors.
+This script shows the number of lines in the current branch by authors. If the code was added and deleted in the past, the script will not include those deleted code.
 
 Example: `git ls-files -- ':(exclude)*.html' ':(exclude)*.pdf' ':(exclude)*.png' | gitcontribution`
 
@@ -17,7 +17,7 @@ Blaming file: src/game/items/Uchigatana.java
 ```
 
 # gitstat
-This script shows the number of lines added and removed by authors.
+This script shows the number of lines added and removed by authors during the lifetime of the entire repo.
 
 Example1: `gitstat e` => this shows the contribution breakdown by email.
 
