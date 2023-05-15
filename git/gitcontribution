@@ -1,7 +1,5 @@
 #!/bin/bash
 
-IFS=$'\n'
-
 # Gather statistics
 while read -r file
 do
