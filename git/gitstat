@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+# Get a list of all authors who have made changes to the repository
+if [[ "$1" == "n" ]]; then
+    authors=$(git log --format='%an' | sort -u)
+elif [[ "$1" == "e" ]]; then
+    authors=$(git log --format='%ae' | sort -u)
+else
+    echo "No input provided. Default it to email"
+    authors=$(git log --format='%ae' | sort -u)
+fi
+
+IFS=$'\n'
+GREEN=$'\e[0;32m'
+
+# Loop through each author and count the number of lines added and removed
+for author in $authors; do
+    results=$(git log --author="$author" --pretty=tformat: --numstat | grep -v '^-' | awk '{ add+=$1; remove+=$2 } END { print add, remove }' | awk -v var="$author" '{print var " +" $1 " -" $2 "\n" }')
+
+    echo "${GREEN}$results${NC}"
+done

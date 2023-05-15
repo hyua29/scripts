@@ -1,0 +1,6 @@
+/wip
+**/bin
+**/.vscode
+gpt_dump.txt
+**/__pycache__
+**.DS_Store
