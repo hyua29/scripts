@@ -1,0 +1,12 @@
+#!/opt/homebrew/bin/python3
+
+import chatgptstreaming
+
+model = "gpt-3.5-turbo"
+
+if __name__ == "__main__":
+   try:
+      chatgptstreaming.run(model)
+   except KeyboardInterrupt:
+      # do nothing here
+      pass
